@@ -10,12 +10,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Comic Neue', cursive;
-      background: linear-gradient(135deg, #ffe0b2, #ffe57f);
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
       color: #333;
       line-height: 1.6;
     }
     header {
-      background-color: #ff6f61;
+      background-color: #ff4d6d;
       padding: 20px;
       text-align: center;
       color: white;
@@ -32,7 +32,7 @@
       font-weight: bold;
       transition: transform 0.3s, color 0.3s;
     }
-    nav a:hover { transform: scale(1.2); color: #ffd54f; }
+    nav a:hover { transform: scale(1.2); color: #f8e473; }
     .container {
       max-width: 1200px;
       margin: 20px auto;
@@ -40,7 +40,7 @@
     }
     section {
       margin-bottom: 50px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 15px;
       padding: 20px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
@@ -48,30 +48,29 @@
     h2 {
       font-size: 2em;
       margin-bottom: 15px;
-      color: #d84315;
+      color: #e91e63;
     }
     ol { margin-left: 20px; }
     li {
       font-size: 1.2em;
       margin-bottom: 15px;
-      position: relative;
     }
     .step {
       padding: 10px;
       border-radius: 10px;
-      background-color: #fff3e0;
-      border: 2px dashed #ffb74d;
+      background-color: #fff9c4;
+      border: 2px dashed #ffd600;
       cursor: pointer;
       transition: all 0.3s;
     }
     .step:hover {
-      background-color: #ffe0b2;
+      background-color: #fff59d;
       transform: scale(1.02);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     .character, .footer-character {
       display: inline-block;
-      background-color: #4caf50;
+      background-color: #00e676;
       border-radius: 50%;
       animation: bounce 2s infinite;
     }
@@ -91,7 +90,7 @@
     }
     .btn {
       display: inline-block;
-      background-color: #ff6f61;
+      background-color: #ff4d6d;
       color: white;
       padding: 12px 25px;
       margin-top: 20px;
@@ -101,9 +100,9 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .btn:hover { background-color: #ff3b2e; }
+    .btn:hover { background-color: #ff1744; }
     footer {
-      background-color: #ff6f61;
+      background-color: #ff4d6d;
       padding: 15px;
       text-align: center;
       color: white;
@@ -123,7 +122,7 @@
   </nav>
 </header>
 
-<audio id="background-music" loop>
+<audio id="background-music" loop autoplay>
   <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
 </audio>
 <audio id="sound-correct" src="https://www.myinstants.com/media/sounds/correct.mp3"></audio>
@@ -134,7 +133,7 @@
 <div class="container">
   <section id="intro">
     <h2>¿Por qué bailar? ¡Porque la vida es un ritmo!</h2>
-    <p>¿Alguna vez has visto a alguien mover las caderas y pensaste: "¡Yo también quiero hacer eso!"? ¡Este tutorial es para ti! Aquí aprenderás pasos básicos, trucos divertidos y cómo convertirte en la estrella de la pista, todo con mucho humor y alegría.</p>
+    <p>¡Este tutorial es para ti! Aprende pasos básicos, trucos divertidos y conviértete en la estrella de la pista con humor y alegría.</p>
   </section>
 
   <section id="pasos">
@@ -152,8 +151,8 @@
     <h2>Haciendo del Baile una Fiesta</h2>
     <ul>
       <li><strong>Imita a tus personajes favoritos:</strong> ¡Haz como si fueras un bailarín de película!</li>
-      <li><strong>Ritmo loco:</strong> Usa objetos en casa como cucharas o botellas para marcar el ritmo.</li>
-      <li><strong>Movimiento libre:</strong> ¡Deja que tu cuerpo se exprese sin miedo!</li>
+      <li><strong>Ritmo loco:</strong> Usa objetos en casa para marcar el ritmo.</li>
+      <li><strong>Movimiento libre:</strong> ¡Deja que tu cuerpo se exprese!</li>
     </ul>
     <div style="text-align:center; margin-top:20px;">
       <div class="character"></div>
@@ -183,7 +182,7 @@
   const audio = document.getElementById('background-music');
   const soundCorrect = document.getElementById('sound-correct');
   const soundWrong = document.getElementById('sound-wrong');
-  let isPlaying = false;
+  let isPlaying = true;
 
   function toggleMusic() {
     if (isPlaying) {
@@ -197,9 +196,9 @@
   function mostrarConsejo(paso) {
     const consejos = {
       1: "¡Relajarse es la clave! Imagina que eres una gelatina feliz moviéndose con la música.",
-      2: "¡Sigue el ritmo! No importa si no es perfecto, lo importante es sentir la música en el corazón.",
-      3: "Mover las caderas en círculos ayuda a que tu cuerpo fluya y te veas más cool.",
-      4: "Camina con confianza, como si fueras la estrella principal en una pasarela de moda.",
+      2: "¡Sigue el ritmo! No importa si no es perfecto, lo importante es sentir la música.",
+      3: "Mover las caderas ayuda a que tu cuerpo fluya y te veas genial.",
+      4: "Camina con confianza, como si fueras la estrella en una pasarela de moda.",
       5: "¡Sonríe y haz el gesto de '¡Yo puedo!' La actitud positiva contagia a todos."
     };
     alert(consejos[paso]);
