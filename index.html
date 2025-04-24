@@ -73,7 +73,6 @@
     color: #d84315;
   }
 
-  /* Estilo para las listas de pasos */
   ol {
     margin-left: 20px;
   }
@@ -84,7 +83,6 @@
     position: relative;
   }
 
-  /* Animaciones y estilos divertidos */
   .step {
     padding: 10px;
     border-radius: 10px;
@@ -100,7 +98,6 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
-  /* Animación para personajes o iconos */
   .character {
     display: inline-block;
     width: 50px;
@@ -121,7 +118,6 @@
     }
   }
 
-  /* Botón para comenzar */
   .btn {
     display: inline-block;
     background-color: #ff6f61;
@@ -139,7 +135,6 @@
     background-color: #ff3b2e;
   }
 
-  /* Footer */
   footer {
     background-color: #ff6f61;
     padding: 15px;
@@ -148,7 +143,6 @@
     margin-top: 50px;
   }
 
-  /* Animación de personajes en el footer */
   .footer-character {
     display: inline-block;
     width: 40px;
@@ -157,6 +151,26 @@
     border-radius: 50%;
     margin: 0 10px;
     animation: bounce 3s infinite;
+  }
+
+  .question, .options {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+
+  .option {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background: #ffd54f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .option:hover {
+    background: #ffb74d;
   }
 </style>
 </head>
@@ -172,23 +186,18 @@
   </nav>
 </header>
 
-<!-- Botón para iniciar la música -->
-<audio id="background-music" loop>
+<audio id="background-music" loop autoplay>
   <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
   Tu navegador no soporta el elemento de audio.
 </audio>
 
-<button onclick="playMusic()" class="btn">Reproducir Música</button>
-
 <div class="container">
 
-  <!-- Sección de introducción -->
   <section id="intro">
     <h2>¿Por qué bailar? ¡Porque la vida es un ritmo!</h2>
     <p>¿Alguna vez has visto a alguien mover las caderas y pensaste: "¡Yo también quiero hacer eso!"? ¡Este tutorial es para ti! Aquí aprenderás pasos básicos, trucos divertidos y cómo convertirte en la estrella de la pista, todo con mucho humor y alegría.</p>
   </section>
 
-  <!-- Sección de pasos básicos -->
   <section id="pasos">
     <h2>Pasos Básicos para Empezar a BAILAR</h2>
     <ol>
@@ -200,7 +209,6 @@
     </ol>
   </section>
 
-  <!-- Sección de diversión en el baile -->
   <section id="diversion">
     <h2>Haciendo del Baile una Fiesta</h2>
     <p>El secreto del baile divertido es no tomarse demasiado en serio. Aquí tienes algunos trucos:</p>
@@ -209,8 +217,6 @@
       <li><strong>Ritmo loco:</strong> Usa objetos en casa como cucharas o botellas para marcar el ritmo.</li>
       <li><strong>Movimiento libre:</strong> ¡Deja que tu cuerpo se exprese sin miedo!</li>
     </ul>
-    <p>Recuerda, ¡baila como si nadie estuviera mirando y diviértete a lo grande!</p>
-    <!-- Animación divertida -->
     <div style="text-align:center; margin-top:20px;">
       <div class="character"></div>
       <div class="character"></div>
@@ -218,7 +224,6 @@
     </div>
   </section>
 
-  <!-- Sección interactiva: Quiz -->
   <section id="quiz-section">
     <h2>¿Listo para el reto? ¡Responde estas preguntas!</h2>
     <button class="btn" onclick="startQuiz()">¡Vamos allá!</button>
@@ -228,7 +233,6 @@
 
 </div>
 
-<!-- Footer con personajes animados -->
 <footer>
   <p>¡Gracias por bailar con nosotros! ¡Sigue moviéndote y nunca pares!</p>
   <div>
@@ -238,9 +242,9 @@
   </div>
 </footer>
 
-<!-- JavaScript para interactividad -->
 <script>
-  // Función para mostrar consejos en los pasos
+  let score = 0;
+
   function mostrarConsejo(paso) {
     const consejos = {
       1: "Recuerda: ¡Relajarse es la clave! Imagina que eres una gelatina feliz moviéndose con la música.",
@@ -252,18 +256,11 @@
     alert(consejos[paso]);
   }
 
-  // Función para iniciar y manejar la música
-  function playMusic() {
-    var audio = document.getElementById('background-music');
-    audio.play();
-  }
-
-  // Función para iniciar y manejar el quiz
   function startQuiz() {
     const quizDiv = document.getElementById('quiz');
     const resultDiv = document.getElementById('result');
 
-    quizDiv.innerHTML = `
+    quizDiv.innerHTML = `  
       <div class="question">¿Qué debes hacer para bailar con estilo?</div>
       <div class="options">
         <button class="option" onclick="checkAnswer('A')">A) Mantenerse tenso y serio</button>
@@ -277,17 +274,17 @@
   function checkAnswer(answer) {
     const resultDiv = document.getElementById('result');
     if (answer === 'B') {
+      score++;  // Sumar punto por respuesta correcta
       resultDiv.innerHTML = '¡Correcto! La clave es divertirse y ser auténtico. ¡Eres un bailarín en potencia!';
-      showNextQuestion();
     } else {
       resultDiv.innerHTML = '¡Uy! Esa no es la mejor opción. ¡Intenta de nuevo y recuerda: baila con alegría!';
     }
+    showNextQuestion();
   }
 
-  // Función para la siguiente pregunta
   function showNextQuestion() {
     const quizDiv = document.getElementById('quiz');
-    quizDiv.innerHTML = `
+    quizDiv.innerHTML = `  
       <div class="question">¿Qué parte de tu cuerpo es clave para bailar con fluidez?</div>
       <div class="options">
         <button class="option" onclick="checkAnswer2('A')">A) Las manos</button>
@@ -297,21 +294,20 @@
     `;
   }
 
-  // Comprobación de la respuesta para la segunda pregunta
   function checkAnswer2(answer) {
     const resultDiv = document.getElementById('result');
     if (answer === 'C') {
+      score++;
       resultDiv.innerHTML = '¡Correcto! Las caderas son esenciales para moverse con ritmo y estilo. ¡Bien hecho!';
-      showNextQuestion2();
     } else {
       resultDiv.innerHTML = '¡Casi! Pero no es esa parte. Las caderas son las más importantes para un buen ritmo.';
     }
+    showNextQuestion2();
   }
 
-  // Función para la tercera pregunta
   function showNextQuestion2() {
     const quizDiv = document.getElementById('quiz');
-    quizDiv.innerHTML = `
+    quizDiv.innerHTML = `  
       <div class="question">¿Qué debes hacer cuando te sientas nervioso en la pista de baile?</div>
       <div class="options">
         <button class="option" onclick="checkAnswer3('A')">A) Ignorar los nervios y seguir bailando</button>
@@ -321,10 +317,10 @@
     `;
   }
 
-  // Comprobación de la respuesta para la tercera pregunta
   function checkAnswer3(answer) {
     const resultDiv = document.getElementById('result');
     if (answer === 'A') {
+      score++;
       resultDiv.innerHTML = '¡Correcto! Los nervios son normales. Lo mejor es seguir bailando y disfrutar el momento.';
       showFinalMessage();
     } else {
@@ -332,11 +328,12 @@
     }
   }
 
-  // Mensaje final del quiz
   function showFinalMessage() {
     const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML += '<br><strong>¡Felicidades! Has completado el reto de baile con éxito. ¡Sigue practicando y divirtiéndote!</strong>';
+    resultDiv.innerHTML += `<br><strong>¡Felicidades! Has completado el reto de baile con éxito.</strong>`;
+    resultDiv.innerHTML += `<br><strong>Tu puntaje final es: ${score} puntos.</strong>`;
   }
 </script>
+
 </body>
 </html>
