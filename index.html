@@ -1,263 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>¡Baila como un Pro! - Tutorial Divertido de Baile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Comic Neue', cursive;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #ff4d6d;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 { font-size: 2.5em; margin-bottom: 10px; }
-    nav { margin-top: 10px; }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.3s, color 0.3s;
-    }
-    nav a:hover { transform: scale(1.2); color: #f8e473; }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-    section {
-      margin-bottom: 50px;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    h2 {
-      font-size: 2em;
-      margin-bottom: 15px;
-      color: #e91e63;
-    }
-    ol { margin-left: 20px; }
-    li {
-      font-size: 1.2em;
-      margin-bottom: 15px;
-    }
-    .step {
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #fff9c4;
-      border: 2px dashed #ffd600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .step:hover {
-      background-color: #fff59d;
-      transform: scale(1.02);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .character, .footer-character {
-      display: inline-block;
-      background-color: #00e676;
-      border-radius: 50%;
-      animation: bounce 2s infinite;
-    }
-    .character {
-      width: 50px;
-      height: 50px;
-      margin-left: 10px;
-    }
-    .footer-character {
-      width: 40px;
-      height: 40px;
-      margin: 0 10px;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .btn {
-      display: inline-block;
-      background-color: #ff4d6d;
-      color: white;
-      padding: 12px 25px;
-      margin-top: 20px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .btn:hover { background-color: #ff1744; }
-    footer {
-      background-color: #ff4d6d;
-      padding: 15px;
-      text-align: center;
-      color: white;
-      margin-top: 50px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Tu regalo, Alex 💙 — De parte de Nicole</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <audio autoplay loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
 </head>
 <body>
-
-<header>
-  <h1>¡Baila como un Pro!</h1>
-  <nav>
-    <a href="#intro">¿Por qué bailar?</a>
-    <a href="#pasos">Pasos Básicos</a>
-    <a href="#diversion">Diversión en el Baile</a>
-    <a href="#quiz-section">¿Listo para el Reto?</a>
-  </nav>
-</header>
-
-<audio id="background-music" loop autoplay>
-  <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
-</audio>
-<audio id="sound-correct" src="https://www.myinstants.com/media/sounds/correct.mp3"></audio>
-<audio id="sound-wrong" src="https://www.myinstants.com/media/sounds/wrong.mp3"></audio>
-
-<button onclick="toggleMusic()" class="btn">▶️ Reproducir / Pausar Música</button>
-
-<div class="container">
-  <section id="intro">
-    <h2>¿Por qué bailar? ¡Porque la vida es un ritmo!</h2>
-    <p>¡Este tutorial es para ti! Aprende pasos básicos, trucos divertidos y conviértete en la estrella de la pista con humor y alegría.</p>
-  </section>
-
-  <section id="pasos">
-    <h2>Pasos Básicos para Empezar a BAILAR</h2>
-    <ol>
-      <li class="step" onclick="mostrarConsejo(1)">¡Relaja esas caderas!</li>
-      <li class="step" onclick="mostrarConsejo(2)">Sigue el ritmo</li>
-      <li class="step" onclick="mostrarConsejo(3)">Movimiento de cadera</li>
-      <li class="step" onclick="mostrarConsejo(4)">Paso de lado a lado</li>
-      <li class="step" onclick="mostrarConsejo(5)">Agrega un toque divertido</li>
-    </ol>
-  </section>
-
-  <section id="diversion">
-    <h2>Haciendo del Baile una Fiesta</h2>
-    <ul>
-      <li><strong>Imita a tus personajes favoritos:</strong> ¡Haz como si fueras un bailarín de película!</li>
-      <li><strong>Ritmo loco:</strong> Usa objetos en casa para marcar el ritmo.</li>
-      <li><strong>Movimiento libre:</strong> ¡Deja que tu cuerpo se exprese!</li>
-    </ul>
-    <div style="text-align:center; margin-top:20px;">
-      <div class="character"></div>
-      <div class="character"></div>
-      <div class="character"></div>
+    <div class="container">
+        <img src="Copa.jpeg" class="photo" alt="Foto de ustedes dos">
+        <div class="message">
+            <p class="line">¡Felicidades, Alexito!</p>
+            <p class="line">Hoy cierras una etapa increíble y abres el camino</p>
+            <p class="line">a un mundo lleno de motores, ideas y sueños por construir.</p>
+            <p class="line">Me siento profundamente orgullosa de ti:</p>
+            <p class="line">por cada esfuerzo y por todo lo que lograste con tu mente brillante</p>
+            <p class="line">y tu pasión por la ingeniería.</p>
+            <p class="line">Verte cumplir este sueño me llena de orgullo y ternura.</p>
+            <p class="line">Tu dedicación es tan potente como un motor bien calibrado,</p>
+            <p class="line">y estoy emocionada por ver hasta dónde vas a llegar.</p>
+            <p class="line">¡Hoy celebras tu graduación, pero también el futuro increíble que te espera!</p>
+            <p class="line">Y me encanta saber que, aunque este capítulo lo escribiste solo, los próximos capítulos puedo compartirlos contigo.</p>
+            <p class="line">¡Te quiero y te celebro con todo mi corazón!</p>
+            <p class="line signature">Con todo mi cariño, Nicole</p>
+        </div>
+        <button onclick="document.getElementById('gift').style.display='block';">Tu regalo, Alex 💙 — De parte de Nicole</button>
+        <div id="gift" style="display:none;">
+            <img src="Pixelart.png" class="pixel-art" alt="Pixel art carro">
+        </div>
     </div>
-  </section>
-
-  <section id="quiz-section">
-    <h2>¿Listo para el reto? ¡Responde estas preguntas!</h2>
-    <button class="btn" onclick="startQuiz()">¡Vamos allá!</button>
-    <div id="quiz"></div>
-    <div id="result"></div>
-  </section>
-</div>
-
-<footer>
-  <p>¡Gracias por bailar con nosotros! ¡Sigue moviéndote y nunca pares!</p>
-  <div>
-    <div class="footer-character"></div>
-    <div class="footer-character"></div>
-    <div class="footer-character"></div>
-  </div>
-</footer>
-
-<script>
-  const audio = document.getElementById('background-music');
-  const soundCorrect = document.getElementById('sound-correct');
-  const soundWrong = document.getElementById('sound-wrong');
-  let isPlaying = true;
-
-  function toggleMusic() {
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-    isPlaying = !isPlaying;
-  }
-
-  function mostrarConsejo(paso) {
-    const consejos = {
-      1: "¡Relajarse es la clave! Imagina que eres una gelatina feliz moviéndose con la música.",
-      2: "¡Sigue el ritmo! No importa si no es perfecto, lo importante es sentir la música.",
-      3: "Mover las caderas ayuda a que tu cuerpo fluya y te veas genial.",
-      4: "Camina con confianza, como si fueras la estrella en una pasarela de moda.",
-      5: "¡Sonríe y haz el gesto de '¡Yo puedo!' La actitud positiva contagia a todos."
-    };
-    alert(consejos[paso]);
-  }
-
-  let score = 0;
-  let questionIndex = 0;
-  const questions = [
-    { text: '¿Qué debes hacer para bailar con estilo?', options: ['A) Mantenerse tenso', 'B) ¡Divertirse y ser tú mismo!', 'C) Mirar solo a la pared'], correct: 'B' },
-    { text: '¿Qué parte de tu cuerpo es clave para bailar con fluidez?', options: ['A) Las manos', 'B) Las piernas', 'C) Las caderas'], correct: 'C' },
-    { text: '¿Qué debes hacer cuando te sientas nervioso en la pista de baile?', options: ['A) Ignorar los nervios y seguir bailando', 'B) Detenerse', 'C) Pedir que apague la música'], correct: 'A' }
-  ];
-
-  function startQuiz() {
-    score = 0;
-    questionIndex = 0;
-    showQuestion();
-    document.getElementById('result').innerHTML = '';
-  }
-
-  function showQuestion() {
-    const q = questions[questionIndex];
-    const quizDiv = document.getElementById('quiz');
-    quizDiv.innerHTML = `
-      <div class="question">${q.text}</div>
-      <div class="options">
-        ${q.options.map(opt => `<button class="option" onclick="checkAnswer('${opt.charAt(0)}')">${opt}</button>`).join('')}
-      </div>
-    `;
-  }
-
-  function checkAnswer(answer) {
-    const correct = questions[questionIndex].correct;
-    const resultDiv = document.getElementById('result');
-
-    if (answer === correct) {
-      score++;
-      soundCorrect.play();
-      resultDiv.innerHTML = '¡Correcto! 🎉';
-    } else {
-      soundWrong.play();
-      resultDiv.innerHTML = '¡Intenta otra vez! ❌';
-    }
-
-    questionIndex++;
-    if (questionIndex < questions.length) {
-      setTimeout(() => {
-        resultDiv.innerHTML = '';
-        showQuestion();
-      }, 1200);
-    } else {
-      setTimeout(() => {
-        resultDiv.innerHTML = `<strong>¡Has completado el reto! Tu puntuación: ${score}/${questions.length}. 🕺💃</strong>`;
-        confetti();
-        document.getElementById('quiz').innerHTML = '';
-      }, 1500);
-    }
-  }
-</script>
-
 </body>
 </html>
