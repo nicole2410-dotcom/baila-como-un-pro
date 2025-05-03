@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Juego de Adivinanza</h1>
+        <p class="message">Adivina un número entre 1 y 100:</p>
+        <input type="number" id="guess" min="1" max="100" placeholder="Introduce tu número">
+        <button onclick="checkGuess()">¡Adivinar!</button>
+        <p id="result" class="result"></p>
+        <p id="attempts"></p>
+    </div>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guess').value);
+            attempts++;
+
+            if (userGuess === randomNumber) {
+                document.getElementById('result').textContent = '¡Felicidades! Adivinaste el número.';
+                document.getElementById('result').style.color = 'green';
+                document.getElementById('attempts').textContent = `Número de intentos: ${attempts}`;
+            } else if (userGuess < randomNumber) {
+                document.getElementById('result').textContent = 'Demasiado bajo. Intenta de nuevo.';
+                document.getElementById('result').style.color = 'red';
+                document.getElementById('attempts').textContent = `Número de intentos: ${attempts}`;
+            } else {
+                document.getElementById('result').textContent = 'Demasiado alto. Intenta de nuevo.';
+                document.getElementById('result').style.color = 'red';
+                document.getElementById('attempts').textContent = `Número de intentos: ${attempts}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
